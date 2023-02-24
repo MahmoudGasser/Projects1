@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cstdio>
+#include <iomanip>
+#include <string>
+#include <cmath>
+using namespace std;
+
+struct Student {
+	string Name;
+	float Grade[20];
+	int Hours[20];
+};
+void GpaCalculator() {
+	Student st1;
+	int Hours=0,N;
+	float sum = 0,gpa;
+	cout << "Enter Student Name \n";
+	getline(cin, st1.Name);
+        cout<<"Enter The Number Of Courses \n";
+	for (int i = 0; i < N; i++) {
+		cout << "Enter Grade For Course " << i + 1 << "\n";
+		cin >> st1.Grade[i];
+		cout << "Enter Credit Hours For Course " << i + 1 << "\n";
+		cin >> st1.Hours[i];
+		sum+= (st1.Grade[i]*st1.Hours[i]);
+		Hours+= st1.Hours[i];
+	}
+	gpa = (sum / Hours);
+	cout << "Your Total Gpa: " << gpa << "\n";
+	cout << "*****************************************\n\n";
+	cout << "Student Name: " << st1.Name << "\n";
+	for (int i = 0; i < N; i++) {
+		cout << "Your Grade For Grade " << i + 1 << " is ";
+		if (st1.Grade[i] >= 3.7 && st1.Grade[i] <= 4.0) {
+			cout << "Excellent \n";
+		}
+		else if (st1.Grade[i] >= 3.0 && st1.Grade[i] <= 3.6) {
+			cout << "Very Good \n";
+
+		}
+		else if (st1.Grade[i] >= 2.3 && st1.Grade[i] <= 2.9) {
+			cout << "Good \n";
+		}
+		else if (st1.Grade[i] >= 2.0 && st1.Grade[i] <= 2.2) {
+			cout << "Passed\n";
+		}
+		else {
+			cout << "Failed\n";
+		}
+	}
+}
+
+int main() {
+	GpaCalculator();
+	
+
+	return 0;
+
+}
